@@ -1,0 +1,35 @@
+<div class="board">
+     <div *ngFor="let row of rows; let rowIndex = index" class="row">
+       <div *ngFor="let col of cols; let colIndex = index" 
+            [ngStyle]="{'background-color': getColor(rowIndex, colIndex)}" 
+            class="cell">
+       </div>
+     </div>
+   
+     <div 
+       cdkDrag 
+       [cdkDragData]="{id: 'piece1'}" 
+       id="piece1" 
+       class="piece piece1" 
+       (cdkDragStarted)="onDragStarted($event)"
+       (cdkDragEnded)="onDragEnd($event)">
+       0
+       <ng-template cdkDragPreview>
+         <div class="piece piece1 preview">0</div>
+       </ng-template>
+     </div>
+   
+     <div 
+       cdkDrag 
+       [cdkDragData]="{id: 'piece2'}" 
+       id="piece2" 
+       class="piece piece2" 
+       (cdkDragStarted)="onDragStarted($event)"
+       (cdkDragEnded)="onDragEnd($event)">
+       1
+       <ng-template cdkDragPreview>
+         <div class="piece piece2 preview">1</div>
+       </ng-template>
+     </div>
+   </div>
+   
